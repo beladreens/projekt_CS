@@ -1,12 +1,21 @@
 ﻿using System;
+using System.Reflection;
+using System.Threading.Tasks;
+using LinkNumberLib;
+using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace LinkNumerConsoleApp
 {
-    class Program
+    class MainApp
     {
+        public static List<string> MainMethodArgs = new List<string>();
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MainMethodArgs = args.ToList();
+            Runm.Run(MainMethodArgs.ToArray());
         }
     }
 }
