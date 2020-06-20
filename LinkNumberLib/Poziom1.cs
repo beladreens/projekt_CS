@@ -58,7 +58,6 @@ namespace LinkNumberLib
 
                 case 11:
                     Console.WriteLine("4 8 1; operatory + -");
-                    czyt = new char[5];
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
                     znak1 = czyt[1];
@@ -91,8 +90,7 @@ namespace LinkNumberLib
                     break;
 
                 case 12:
-                    Console.WriteLine("4 20 7; operatory + /");
-                    czyt = new char[5];
+                    Console.WriteLine("2 4 6; operatory * /");
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
                     znak1 = czyt[1];
@@ -100,10 +98,10 @@ namespace LinkNumberLib
                     znak2 = czyt[3];
                     c = czyt[4]; cl = (int)(c - '0');
 
-                    if (czyt[1] == '+')
+                    if (czyt[1] == '*')
                     {
-                        part1 = al + bl;
-                        if (czyt[3] == '+') Console.WriteLine("Nie można powtarzać operatorów!");
+                        part1 = al * bl;
+                        if (czyt[3] == '*') Console.WriteLine("Nie można powtarzać operatorów!");
 
                         if (czyt[3] == '/')
                         {
@@ -116,17 +114,16 @@ namespace LinkNumberLib
                         part1 = al / bl;
                         if (czyt[3] == '/') Console.WriteLine("Nie można powtarzać operatorów!");
 
-                        if (czyt[3] == '+')
+                        if (czyt[3] == '*')
                         {
-                            if ((part1 + cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
-                            if ((part1 + cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
+                            if ((part1 * cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
+                            if ((part1 * cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
                         }
                     }
                     break;
 
                 case 13:
-                    Console.WriteLine("4 3 27; operatory + /");
-                    czyt = new char[5];
+                    Console.WriteLine("3 7 8; operatory * -");
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
                     znak1 = czyt[1];
@@ -134,23 +131,23 @@ namespace LinkNumberLib
                     znak2 = czyt[3];
                     c = czyt[4]; cl = (int)(c - '0');
 
-                    if (czyt[1] == '+')
+                    if (czyt[1] == '*')
                     {
-                        part1 = al + bl;
-                        if (czyt[3] == '+') Console.WriteLine("Nie można powtarzać operatorów!");
+                        part1 = al * bl;
+                        if (czyt[3] == '*') Console.WriteLine("Nie można powtarzać operatorów!");
 
-                        if (czyt[3] == '/')
+                        if (czyt[3] == '-')
                         {
-                            if ((part1 / cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
-                            if ((part1 / cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
+                            if ((part1 - cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
+                            if ((part1 - cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
                         }
                     }
-                    if (czyt[1] == '/')
+                    if (czyt[1] == '-')
                     {
-                        part1 = al / bl;
-                        if (czyt[3] == '/') Console.WriteLine("Nie można powtarzać operatorów!");
+                        part1 = al - bl;
+                        if (czyt[3] == '-') Console.WriteLine("Nie można powtarzać operatorów!");
 
-                        if (czyt[3] == '+')
+                        if (czyt[3] == '*')
                         {
                             if ((part1 + cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
                             if ((part1 + cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
@@ -160,7 +157,6 @@ namespace LinkNumberLib
 
                 case 14:
                     Console.WriteLine("3 6 4; operatory * -");
-                    czyt = new char[5];
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
                     znak1 = czyt[1];
@@ -193,8 +189,7 @@ namespace LinkNumberLib
                     break;
 
                 case 15:
-                    Console.WriteLine("30 3 6; operatory / *");
-                    czyt = new char[5];
+                    Console.WriteLine("3 3 6; operatory - *");
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
                     znak1 = czyt[1];
@@ -202,33 +197,35 @@ namespace LinkNumberLib
                     znak2 = czyt[3];
                     c = czyt[4]; cl = (int)(c - '0');
 
-                    if (czyt[1] == '*')
+                    if (czyt[1] == '*' || czyt[1] == '/')
                     {
-                        part1 = al * bl;
-                        if (czyt[3] == '*') Console.WriteLine("Nie można powtarzać operatorów!");
-
-                        if (czyt[3] == '/')
+                        if (czyt[1] == '*')
                         {
-                            if ((part1 / cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
-                            if ((part1 / cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
+                            part1 = al * bl;
+                            if (czyt[3] == '*') Console.WriteLine("Nie można powtarzać operatorów!");
+
+                            if (czyt[3] == '-')
+                            {
+                                if ((part1 - cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
+                                if ((part1 - cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
+                            }
                         }
-                    }
-                    if (czyt[1] == '/')
-                    {
-                        part1 = al / bl;
-                        if (czyt[3] == '/') Console.WriteLine("Nie można powtarzać operatorów!");
-
-                        if (czyt[3] == '*')
+                        if (czyt[1] == '-')
                         {
-                            if ((part1 * cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
-                            if ((part1 * cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
+                            part1 = al - bl;
+                            if (czyt[3] == '-') Console.WriteLine("Nie można powtarzać operatorów!");
+
+                            if (czyt[3] == '*')
+                            {
+                                if ((part1 * cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
+                                if ((part1 * cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
+                            }
                         }
                     }
                     break;
 
                 case 16:
-                    Console.WriteLine("4 5 20; operatory / *");
-                    czyt = new char[5];
+                    Console.WriteLine("2 5 6; operatory + *");
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
                     znak1 = czyt[1];
@@ -241,16 +238,16 @@ namespace LinkNumberLib
                         part1 = al * bl;
                         if (czyt[3] == '*') Console.WriteLine("Nie można powtarzać operatorów!");
 
-                        if (czyt[3] == '/')
+                        if (czyt[3] == '+')
                         {
-                            if ((part1 / cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
-                            if ((part1 / cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
+                            if ((part1 + cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
+                            if ((part1 + cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
                         }
                     }
-                    if (czyt[1] == '/')
+                    if (czyt[1] == '+')
                     {
-                        part1 = al / bl;
-                        if (czyt[3] == '/') Console.WriteLine("Nie można powtarzać operatorów!");
+                        part1 = al + bl;
+                        if (czyt[3] == '+') Console.WriteLine("Nie można powtarzać operatorów!");
 
                         if (czyt[3] == '*')
                         {
@@ -295,7 +292,7 @@ namespace LinkNumberLib
                     break;
 
                 case 18:
-                    Console.WriteLine("2 3 48; operatory + /");
+                    Console.WriteLine("2 4 7; operatory + *");
                     czyt = new char[5];
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
@@ -309,16 +306,16 @@ namespace LinkNumberLib
                         part1 = al + bl;
                         if (czyt[3] == '+') Console.WriteLine("Nie można powtarzać operatorów!");
 
-                        if (czyt[3] == '/')
+                        if (czyt[3] == '*')
                         {
-                            if ((part1 / cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
-                            if ((part1 / cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
+                            if ((part1 * cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
+                            if ((part1 * cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
                         }
                     }
-                    if (czyt[1] == '/')
+                    if (czyt[1] == '*')
                     {
-                        part1 = al / bl;
-                        if (czyt[3] == '/') Console.WriteLine("Nie można powtarzać operatorów!");
+                        part1 = al * bl;
+                        if (czyt[3] == '*') Console.WriteLine("Nie można powtarzać operatorów!");
 
                         if (czyt[3] == '+')
                         {

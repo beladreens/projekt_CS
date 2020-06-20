@@ -16,6 +16,7 @@ namespace LinkNumberLib
         {
             Run(MainMethodArgs.ToArray());
         }
+
         public static void Run(string[] args)
         {
             Console.WriteLine("Witaj w grze 'Link Number'!");
@@ -40,7 +41,6 @@ namespace LinkNumberLib
 
                 lvl1.GetNumbers();
 
-
                 Console.WriteLine("Aby zagrać jeszcze raz wybierz 'Z'. Aby wyjśc z gry wybierz 'W'.");
                 string cb = Console.ReadLine();
                 if (cb.ToUpper() == "Z")
@@ -48,6 +48,12 @@ namespace LinkNumberLib
                     Restart();
                     Console.WriteLine();
                 }
+                if (cb.ToUpper() == "W")
+                {
+                    System.Threading.Thread.Sleep(100);
+                    Environment.Exit(0);
+                }
+                else Console.WriteLine("Wybierz Z albo W.");
             }
 
             else
