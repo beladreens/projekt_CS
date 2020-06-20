@@ -350,10 +350,10 @@ namespace LinkNumberLib
                     }
                     break;
 
-                /*default:
+                default:
                     Console.WriteLine("Wprowadź odpowiednie liczby i operatory bez spacji, a także bez znaku równości!");
                     Console.WriteLine("Przykład: 1+2-3");
-                    break;*/
+                    break;
             }
         }
     }   
