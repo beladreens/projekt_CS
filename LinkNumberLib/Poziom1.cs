@@ -17,6 +17,11 @@ namespace LinkNumberLib
             scr = wynik.ToString();
         }
 
+        void Reminder()
+        {
+            Console.WriteLine("Wprowadź odpowiednie liczby i operatory bez spacji, a także bez znaku równości!");
+            Console.WriteLine("Przykład: 1+2-3");
+        }
         public void GetNumbers()
         {
             switch (wynik)
@@ -192,34 +197,28 @@ namespace LinkNumberLib
                     Console.WriteLine("3 3 6; operatory - *");
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
-                    znak1 = czyt[1];
                     b = czyt[2]; bl = (int)(b - '0');
-                    znak2 = czyt[3];
                     c = czyt[4]; cl = (int)(c - '0');
-
-                    if (czyt[1] == '*' || czyt[1] == '/')
+                    if (czyt[1] == '*')
                     {
-                        if (czyt[1] == '*')
-                        {
-                            part1 = al * bl;
-                            if (czyt[3] == '*') Console.WriteLine("Nie można powtarzać operatorów!");
+                        part1 = al * bl;
+                        if (czyt[3] == '*') Console.WriteLine("Nie można powtarzać operatorów!");
 
-                            if (czyt[3] == '-')
-                            {
-                                if ((part1 - cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
-                                if ((part1 - cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
-                            }
+                        if (czyt[3] == '-')
+                        {
+                            if ((part1 - cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
+                            if ((part1 - cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
                         }
-                        if (czyt[1] == '-')
-                        {
-                            part1 = al - bl;
-                            if (czyt[3] == '-') Console.WriteLine("Nie można powtarzać operatorów!");
+                    }
+                    if (czyt[1] == '-')
+                    {
+                        part1 = al - bl;
+                        if (czyt[3] == '-') Console.WriteLine("Nie można powtarzać operatorów!");
 
-                            if (czyt[3] == '*')
-                            {
-                                if ((part1 * cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
-                                if ((part1 * cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
-                            }
+                        if (czyt[3] == '*')
+                        {
+                            if ((part1 * cl) == wynik) Console.WriteLine("Gratulacje! To prawidłowe działanie.");
+                            if ((part1 * cl) != wynik) Console.WriteLine("Spróbuj jeszcze raz :(");
                         }
                     }
                     break;
@@ -228,9 +227,7 @@ namespace LinkNumberLib
                     Console.WriteLine("2 5 6; operatory + *");
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
-                    znak1 = czyt[1];
                     b = czyt[2]; bl = (int)(b - '0');
-                    znak2 = czyt[3];
                     c = czyt[4]; cl = (int)(c - '0');
 
                     if (czyt[1] == '*')
@@ -262,9 +259,7 @@ namespace LinkNumberLib
                     czyt = new char[5];
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
-                    znak1 = czyt[1];
                     b = czyt[2]; bl = (int)(b - '0');
-                    znak2 = czyt[3];
                     c = czyt[4]; cl = (int)(c - '0');
 
                     if (czyt[1] == '*')
@@ -296,9 +291,7 @@ namespace LinkNumberLib
                     czyt = new char[5];
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
-                    znak1 = czyt[1];
                     b = czyt[2]; bl = (int)(b - '0');
-                    znak2 = czyt[3];
                     c = czyt[4]; cl = (int)(c - '0');
 
                     if (czyt[1] == '+')
@@ -330,9 +323,7 @@ namespace LinkNumberLib
                     czyt = new char[5];
                     czyt = Console.ReadLine().ToCharArray(0, 5);
                     a = czyt[0]; al = (int)(a - '0');
-                    znak1 = czyt[1];
                     b = czyt[2]; bl = (int)(b - '0');
-                    znak2 = czyt[3];
                     c = czyt[4]; cl = (int)(c - '0');
 
                     if (czyt[1] == '+')
@@ -359,10 +350,10 @@ namespace LinkNumberLib
                     }
                     break;
 
-                default:
+                /*default:
                     Console.WriteLine("Wprowadź odpowiednie liczby i operatory bez spacji, a także bez znaku równości!");
                     Console.WriteLine("Przykład: 1+2-3");
-                    break;
+                    break;*/
             }
         }
     }   

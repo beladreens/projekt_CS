@@ -4,8 +4,6 @@ using System.Threading.Tasks;
 using LinkNumberLib;
 using System.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LinkNumberLib
 {
@@ -14,18 +12,29 @@ namespace LinkNumberLib
         public static List<string> MainMethodArgs = new List<string>();
         public static void Restart()
         {
+            Console.Write("Wybierz 1 lub 2: ");
             Run(MainMethodArgs.ToArray());
+        }
+
+        public static void Choose()
+        {
+            Console.WriteLine("Aby zagrać jeszcze raz wybierz 'Z'. Aby wyjśc z gry wybierz 'W'.");
+            string cb = Console.ReadLine();
+            if (cb.ToUpper() == "Z")
+            {
+                Restart();
+                Console.WriteLine();
+            }
+            if (cb.ToUpper() == "W")
+            {
+                System.Threading.Thread.Sleep(100);
+                Environment.Exit(0);
+            }
+            else Console.WriteLine("Wybierz Z albo W.");
         }
 
         public static void Run(string[] args)
         {
-            Console.WriteLine("Witaj w grze 'Link Number'!");
-            Console.WriteLine("Twoim zadaniem jest dopasowanie liczb i operatorów w działaniu tak, aby otrzymać wyświetloną liczbę jako wynik.");
-            Console.WriteLine("Na początku musisz wybrać poziom trudności: 1 lub 2.");
-            Console.WriteLine("Poziomy różnią się ilością możliwych liczb w działaniu.");
-            Console.WriteLine("Na poziomie 1 należy użyć 3 liczb aby otrzymać wynik, poziom 2 z kolei wymaga 4 liczb.");
-            Console.Write("wybierz poziom: ");
-
             ConsoleKeyInfo wybor;
             wybor = Console.ReadKey();
             Console.WriteLine();
@@ -41,25 +50,23 @@ namespace LinkNumberLib
 
                 lvl1.GetNumbers();
 
-                Console.WriteLine("Aby zagrać jeszcze raz wybierz 'Z'. Aby wyjśc z gry wybierz 'W'.");
-                string cb = Console.ReadLine();
-                if (cb.ToUpper() == "Z")
-                {
-                    Restart();
-                    Console.WriteLine();
-                }
-                if (cb.ToUpper() == "W")
-                {
-                    System.Threading.Thread.Sleep(100);
-                    Environment.Exit(0);
-                }
-                else Console.WriteLine("Wybierz Z albo W.");
+                Choose();
             }
 
-            else
+            if (wybor.KeyChar == '2')
             {
-                Console.WriteLine("na razie innych lvlow nie ma");
+                Poziom2 lvl2 = new Poziom2();
+
+                Console.Write("Liczba, którą należy otrzymać to ");
+                Console.WriteLine(lvl2.Scr2);
+                Console.Write("Wybierz liczby i operatory w odpowiedniej kolejności: ");
+
+                lvl2.GetNumbers2();
+
+                Choose();
             }
+
+            else Restart();
         }
     }
 }
